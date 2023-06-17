@@ -334,7 +334,17 @@ final class MazePanel extends JPanel {
                         newY++;
                     }
                 } else {
-                    searchGreenDroidDFS():
+                    // Algoritma pergerakan droid merah
+                    int direction = random.nextInt(4);
+                    if (direction == 0 && currentX > 0) {
+                        newX--;
+                    } else if (direction == 1 && currentX < MAZE_SIZE - 1) {
+                        newX++;
+                    } else if (direction == 2 && currentY > 0) {
+                        newY--;
+                    } else if (direction == 3 && currentY < MAZE_SIZE - 1) {
+                        newY++;
+                    }
                 }
                 
                 if (isValidPosition(newX, newY)) {
@@ -381,9 +391,5 @@ final class MazePanel extends JPanel {
             g.fillOval(droids[i][0] * CELL_SIZE, droids[i][1] * CELL_SIZE, CELL_SIZE, CELL_SIZE);
         }
         
-    }
-
-    private void searchGreenDroidDFS() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
